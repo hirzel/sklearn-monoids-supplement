@@ -20,7 +20,6 @@ def get_metric(trained_pipeline, test_X, test_y):
 def get_results(dataset, expt_type, random_seed, fraction):
     if expt_type=="spark":
         print("spark training to be started")
-        import pdb;pdb.set_trace()
         (train_X, train_y), (test_X, test_y) = get_data(dataset, astype="pandas", random_seed=random_seed)
         df = train_X
         df['label_column']=train_y
@@ -31,7 +30,6 @@ def get_results(dataset, expt_type, random_seed, fraction):
         train_X = pandas2spark(train_X)
         pipeline = get_pipeline(dataset, convert_to_pandas = True, sort_index=True) 
         t1=time.time()
-        import pdb;pdb.set_trace()
         try:
             trained_pipeline = pipeline.fit(train_X, train_y)
         except BaseException as e:
@@ -40,7 +38,6 @@ def get_results(dataset, expt_type, random_seed, fraction):
             import pdb;pdb.set_trace()
             print(f"Exception while running for {dataset}", e)
         t2 = time.time()
-        import pdb;pdb.set_trace()
         print("Training complete")
         (train_X, train_y), (test_X, test_y) = get_data(dataset, astype="spark", random_seed=random_seed)
         result = get_metric(trained_pipeline, test_X, test_y) 
@@ -73,7 +70,7 @@ if __name__=="__main__":
     for dataset in datasets:
         random_seeds = [0,42,90,33,56]
         random_seed=42
-        fractions =[8192]#1024, 2048, 4096, 8192]#[1/16, 1/8,1/4,1/2,1, 2, 4]#, 8]
+        fractions =[1024, 2048, 4096, 8192]#[1/16, 1/8,1/4,1/2,1, 2, 4]#, 8]
         for fraction in fractions:
             accuracies_1 = []
             run_times_1 = []
