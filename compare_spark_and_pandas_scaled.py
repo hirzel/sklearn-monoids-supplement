@@ -64,7 +64,9 @@ def get_results(dataset, expt_type, random_seed, fraction):
 
 if __name__=="__main__":
     header_row = "dataset, setting, fraction, holdout_accuracy_mean, holdout_accuracy_stddev, time_mean, time_stddev"
-    with open(os.path.join("batching_results","spark_pandas_scaled_comparison_debug.csv"), "w") as f:
+    filename = os.path.join("batching_results","spark_pandas_scaled_comparison_debug.csv")
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    with open(filename, "w") as f:
         f.write(header_row)
         f.write("\n")
     for dataset in datasets:

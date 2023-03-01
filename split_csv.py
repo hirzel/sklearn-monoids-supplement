@@ -3,7 +3,7 @@ import pandas as pd
 
 n_splits = 5
 random_states = [42, 33, 99, 21, 60]
-dataset_base_dir = "/dccstor/kakate1/rasl_datasets/"
+dataset_base_dir = "./rasl_datasets/"
 dataset_name = "kddcup99full"
 #dataset_name="ecommerce_2019_oct"
 label_encoding=True

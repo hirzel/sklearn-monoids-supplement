@@ -54,7 +54,7 @@ def run_fit_with_batches(split):
     elif args.expt_type==2:
         print("spark training to be started")
         (train_X, train_y), (test_X, test_y) = get_data(args.dataset, astype="spark")
-        import pdb;pdb.set_trace()
+        #import pdb;pdb.set_trace()
         pipeline = get_pipeline(args.dataset, convert_to_pandas = True) 
         #pipeline = pipeline.remove_last()
         t1=time.time()

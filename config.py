@@ -10,7 +10,7 @@ from lale.lib.rasl import Convert, SortIndex
 
 RANDOM_SEED=32
 
-large_datasets_dir="/dccstor/kakate1/rasl_datasets"
+large_datasets_dir="./rasl_datasets"
 large_datasets=[
         "ecommerce_2019_oct",
         "ecommerce_2019_oct_clean",
