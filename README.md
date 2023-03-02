@@ -9,11 +9,22 @@ open-source project.
 Specifically, the relevant code can be found in the
 [lale.lib.rasl](https://github.com/IBM/lale/tree/master/lale/lib/rasl)
 folder of the Lale repository.
-In addition to the Lale repository, this supplemental repository provides
-the scripts for running the experiments described in the paper.
-Running these requires installing Lale, as well as downloading the
-datasets, all of which are publicly available and referenced from the
-paper.
+
+## Installation
+
+Install [Lale](https://github.com/IBM/lale/blob/master/docs/installation.rst) and packages required for the evaluation:
+```
+pip install "lale[full,test]" memory_profiler
+```
+
+Download the following datasets in the `./rasl_datasets` directory:
+- [KDD Cup 1999](https://www.openml.org/search?type=data&status=active&id=42746)
+- [Steam Review](https://www.kaggle.com/datasets/andrewmvd/steam-reviews)
+- [eCommerce october 2019](https://www.kaggle.com/code/danofer/ecommerce-store-predict-purchases-data-prep/data?select=2019-Oct.csv)
+- [Chicago data portal: Taxi Trips](https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew)
+
+
+## Evaluation
 
 #### RQ1. Can batching enable fitting pipelines on larger data without Spark SQL?
 
